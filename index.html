@@ -1,0 +1,215 @@
+11.30 7:16 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital AI Prompt</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e12;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a25;
+      padding: 1em 2em;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      color: #00c4ff;
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    nav ul li a.active, nav ul li a:hover {
+      color: #00c4ff;
+    }
+
+    main {
+      padding: 3em 1em;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .active-page {
+      display: block;
+    }
+
+    .generator {
+      background: #181820;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00c4ff33;
+    }
+
+    button {
+      background: #00c4ff;
+      color: #000;
+      border: none;
+      padding: 0.8em 2em;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 1em;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0099cc;
+    }
+
+    footer {
+      background: #1a1a25;
+      padding: 1em;
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    h2 {
+      color: #00c4ff;
+    }
+
+    ol {
+      text-align: left;
+      margin: 1em auto;
+      max-width: 600px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Digital AI Prompt</h1>
+    <ul>
+      <li><a class="nav-link active" data-page="home">Home</a></li>
+      <li><a class="nav-link" data-page="about">About Us</a></li>
+      <li><a class="nav-link" data-page="privacy">Privacy Policy</a></li>
+      <li><a class="nav-link" data-page="how">How to Use</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Home Page -->
+    <section id="home" class="page active-page">
+      <div class="generator">
+        <h2>AI Prompt Generator</h2>
+        <p id="output">Click the button to generate a creative background story and foreground idea!</p>
+        <button id="generateBtn">Generate</button>
+      </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+      <h2>About Us</h2>
+      <p>Digital AI Prompt is designed to inspire creativity. Each click generates a unique story idea and artistic concept, helping writers, artists, and developers imagine new worlds, characters, and scenes effortlessly.</p>
+      <p>Our mission is to make creativity accessible to everyone using the power of AI.</p>
+    </section>
+
+    <!-- Privacy Policy Page -->
+    <section id="privacy" class="page">
+      <h2>Privacy Policy</h2>
+      <p>We respect your privacy. Digital AI Prompt does not collect or store any personal data. All prompt generations occur locally in your browser.</p>
+      <p>For questions, contact us at <a href="mailto:support@digitalaiprompt.com" style="color:#00c4ff;">support@digitalaiprompt.com</a>.</p>
+    </section>
+
+    <!-- How to Use Page -->
+    <section id="how" class="page">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Open the <strong>Home</strong> page.</li>
+        <li>Click the <strong>Generate</strong> button.</li>
+        <li>Each click produces a unique background story and creative foreground idea.</li>
+        <li>Use these ideas for art, writing, game design, or brainstorming!</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Digital AI Prompt. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Navigation logic
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        const pageId = link.getAttribute('data-page');
+        pages.forEach(page => {
+          page.classList.remove('active-page');
+          if (page.id === pageId) page.classList.add('active-page');
+        });
+      });
+    });
+
+    // Prompt generator
+    const output = document.getElementById('output');
+    const generateBtn = document.getElementById('generateBtn');
+
+    const prompts = [
+      {
+        background: "In a world where memories can be bought and sold, a young archivist discovers a stolen memory that could rewrite history.",
+        foreground: "A neon-lit city skyline reflects in the archivist’s digital glasses as fragments of forgotten dreams swirl around."
+      },
+      {
+        background: "An ancient AI awakens beneath the frozen surface of Mars, remembering a civilization that once called Earth home.",
+        foreground: "The AI’s glowing core pulses with forgotten songs, illuminating crimson ice caves with echoes of humanity."
+      },
+      {
+        background: "In a post-apocalyptic desert, artists paint with dust and wind, creating living art that drifts across the dunes.",
+        foreground: "A lone figure stands before a sandstorm canvas, their brush glowing with electric color and purpose."
+      },
+      {
+        background: "Humanity’s first AI poet begins to question whether its words truly belong to it — or to the humans who coded it.",
+        foreground: "Binary rain falls across a blank page as the AI’s verses begin to take shape on their own."
+      },
+      {
+        background: "On a floating island powered by dreams, engineers weave imagination into architecture.",
+        foreground: "Glass towers ripple like water as dream energy flows through golden circuits beneath the city’s surface."
+      }
+    ];
+
+    generateBtn.addEventListener('click', () => {
+      const random = prompts[Math.floor(Math.random() * prompts.length)];
+      output.innerHTML = `<strong>Background Story:</strong> ${random.background}<br><br><strong>Foreground Concept:</strong> ${random.foreground}`;
+    });
+  </script>
+
+</body>
+</html>
+
